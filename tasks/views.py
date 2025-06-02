@@ -14,3 +14,6 @@ def blog(request):
 
 def show_task(request):
     return HttpResponse("<h1>This is Task Page!</h2>")
+
+def print_name(request):
+    return HttpResponse("Tasnim Rahman")
