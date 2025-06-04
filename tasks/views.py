@@ -3,17 +3,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse("<h1>Welcome To The Taks Management System</h1>")
+def manager_dashboard(request):
+    return render(request,"dashboard/manager.html")
 
-def contact(request):
-    return HttpResponse("<h2>This is Contact Page!!</h2>")
+def user_dashboard(request):
+    return render(request,"dashboard/user.html")
 
-def blog(request):
-    return HttpResponse("<h2>This is Blog Page!!</h2><p>This is a blog post.</p>")
-
-def show_task(request):
-    return HttpResponse("<h1>This is Task Page!</h2>")
-
-def print_name(request):
-    return HttpResponse("Tasnim Rahman")
+def test(request):
+    return render(request,'test.html')

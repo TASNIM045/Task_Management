@@ -1,0 +1,16 @@
+.lal-bg {
+    background-color: red;
+    color: white;
+}
+
+p {
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+img {
+    height: 500px;
+    width: 500px;
+}
