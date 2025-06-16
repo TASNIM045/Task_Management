@@ -1,4 +1,5 @@
-{% extends "dashboard/board.html" %}
+{% extends "dashboard/board.html" %} 
+
 {% block title %}User Dashboard{% endblock title %}
 {% block tasks %}
 
@@ -40,10 +41,11 @@
         <p class="w-2 h-2 bg-green-500 rounded-full"></p>
         Test Low Task
       </div>
-      <div
-        class="bg-green-100 block w-17 rounded-full px-5 py-2 text-green-600 font-semibold"
-      >
-        Low
+      <div>
+        <span
+          class="bg-green-100 rounded-full px-5 py-2 text-green-600 font-semibold"
+          >Low</span
+        >
       </div>
       <div class="flex -space-x-3">
         <span
@@ -66,10 +68,11 @@
         <p class="w-2 h-2 bg-yellow-500 rounded-full"></p>
         Test Medium Task
       </div>
-      <div
-        class="bg-yellow-100 block w-23 rounded-full px-5 py-2 text-yellow-600 font-semibold"
-      >
-        Medium
+      <div>
+        <span
+          class="bg-yellow-100 rounded-full px-5 py-2 text-yellow-500 font-semibold"
+          >Medium</span
+        >
       </div>
       <div class="flex -space-x-3">
         <span
@@ -92,10 +95,11 @@
         <p class="w-2 h-2 bg-red-500 rounded-full"></p>
         Test High Task
       </div>
-      <div
-        class="bg-red-100 block w-18 rounded-full px-5 py-2 text-red-600 font-semibold"
-      >
-        High
+      <div>
+        <span
+          class="bg-red-100 rounded-full px-5 py-2 text-red-600 font-semibold"
+          >High</span
+        >
       </div>
       <div class="flex -space-x-3">
         <span
