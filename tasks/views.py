@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from tasks.froms import TaskForm,TaskModelForm
-from tasks.models import Employee,Task
+from tasks.models import Employee,Task, TaskDetail, Project
+from datetime import date
+from django.db.models import Q,Count,Max,Min,Avg
 
 # Create your views here.
 
@@ -48,3 +50,18 @@ def create_task(request):
         
     context = {"form":form}
     return render(request,'task_form.html',context)
+
+def view_task(request):
+    # tasks = Task.objects.all()
+    # task_3 = Task.objects.get(id=3)
+    # first_task = Task.objects.first()
+    # return render(request,"show_task.html",{"tasks":tasks, "task_3":task_3,"first_task":first_task})
+    # tasks = Task.objects.filter(status="COMPLETED")
+    # tasks = Task.objects.filter(due_date=date.today())
+    # tasks = TaskDetail.objects.exclude(priority="L")
+    # tasks = Task.objects.filter(title__icontains="c",status="PENDING")
+    # tasks = Task.objects.filter(Q(status="PENDING") | Q(status="IN_PROGRESS"))
+    # tasks = Task.objects.select_related('details').all()
+
+    task_cnt = Project.objects.annotate(num_task=Count('task'))
+    return render(request, 'show_task.html',{"task_cnt":task_cnt})
