@@ -55,38 +55,41 @@
       <main>
         <!-- Stats Table -->
         <div class="grid grid-cols-4 gap-6 mb-12">
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <h4 class="text-md font-medium text-gray-500 mb-3">TOTAL TASK</h4>
-            <div class="flex justify-between">
-              <div class="space-y-3">
-                <p class="text-3xl font-semibold">{{ total_task }}</p>
-                <p class="text-gray-500 text-md">11 last month</p>
-              </div>
-              <div class="my-auto p-3 bg-blue-100 rounded-full cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="size-6 text-blue-600"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
-                  />
-                </svg>
+          <a href="{% url 'manager-dashboard' %}?type=all">
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="text-md font-medium text-gray-500 mb-3">TOTAL TASK</h4>
+              <div class="flex justify-between">
+                <div class="space-y-3">
+                  <p class="text-3xl font-semibold">{{ counts.total }}</p>
+                  <p class="text-gray-500 text-md">11 last month</p>
+                </div>
+                <div class="my-auto p-3 bg-blue-100 rounded-full cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-6 text-blue-600"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm">
+          </a>
+          <a href="{% url 'manager-dashboard' %}?type=completed">
+            <div class="bg-white rounded-xl p-6 shadow-sm">
             <h4 class="text-md font-medium text-gray-500 mb-3">
               COMPLETED TASK
             </h4>
             <div class="flex justify-between">
               <div class="space-y-3">
-                <p class="text-3xl font-semibold">{{ completed_task }}</p>
+                <p class="text-3xl font-semibold">{{ counts.completed }}</p>
                 <p class="text-gray-500 text-md">11 last month</p>
               </div>
               <div class="my-auto p-3 bg-green-100 rounded-full cursor-pointer">
@@ -107,62 +110,67 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <h4 class="text-md font-medium text-gray-500 mb-3">
-              TASK PROGRESS
-            </h4>
-            <div class="flex justify-between">
-              <div class="space-y-3">
-                <p class="text-3xl font-semibold">{{ in_progress_task }}</p>
-                <p class="text-gray-500 text-md">11 last month</p>
-              </div>
-              <div
-                class="my-auto p-3 bg-yellow-100 rounded-full cursor-pointer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="size-6 text-yellow-500"
+          </a>
+          <a href="{% url 'manager-dashboard' %}?type=in-progress">
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="text-md font-medium text-gray-500 mb-3">
+                TASK PROGRESS
+              </h4>
+              <div class="flex justify-between">
+                <div class="space-y-3">
+                  <p class="text-3xl font-semibold">{{ counts.in_progress_task }}</p>
+                  <p class="text-gray-500 text-md">11 last month</p>
+                </div>
+                <div
+                  class="my-auto p-3 bg-yellow-100 rounded-full cursor-pointer"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-6 text-yellow-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <h4 class="text-md font-medium text-gray-500 mb-3">TOSOD</h4>
-            <div class="flex justify-between">
-              <div class="space-y-3">
-                <p class="text-3xl font-semibold">{{ pending_task }}</p>
-                <p class="text-gray-500 text-md">11 last month</p>
-              </div>
-              <div
-                class="my-auto p-3 bg-purple-100 rounded-full cursor-pointer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="size-6 text-purple-600"
+          </a>
+          <a href="{% url 'manager-dashboard' %}?type=pending">
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="text-md font-medium text-gray-500 mb-3">TOSOD</h4>
+              <div class="flex justify-between">
+                <div class="space-y-3">
+                  <p class="text-3xl font-semibold">{{ counts.pending }}</p>
+                  <p class="text-gray-500 text-md">11 last month</p>
+                </div>
+                <div
+                  class="my-auto p-3 bg-purple-100 rounded-full cursor-pointer"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-6 text-purple-600"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         {% comment %} this is the block {% endcomment %}
